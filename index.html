@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-      <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Unsplash-API</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="cabecario">
@@ -14,9 +17,9 @@
     <script src="script.js"></script>
     <div id="form">
         <form method="GET" id="imgFORM"> 
-            <label for="img">Insira a Palavra-Chave: </label>
+            <label for="img" id="p-c">Procure por imagens e ilustrações: </label>
             <input type="text" id="PC" name="PC" placeholder="Palavra-Chave" required>
-            <button type="submit">Buscar</button>
+            <button type="submit" id="butao">Buscar</button>
         </form>
     </div>
     <div id="result">

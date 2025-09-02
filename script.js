@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     if (data.erro) {
                         document.getElementById("result").innerHTML = `<p style="color: red;">${data.erro}</p>`;
                     } else if (data.URL) {
-                        document.getElementById("result").innerHTML = 
-                        `<img src="${data.URL}" alt="Imagem de ${PC}" style="max-width: 100%; height: auto;">`;
+                        document.getElementById("result").innerHTML =
+                        `<img src="${data.URL}" alt="Imagem de ${PC}" class="displayed-image">`;
                     } else {
                         document.getElementById("result").innerHTML = "<p>Nenhuma imagem encontrada.</p>";
                     }
