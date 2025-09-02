@@ -1,0 +1,66 @@
+.cabecario{
+    text-align: center;
+    align-content: center;
+    background-color: #ac2118;
+    height: 100px;
+    border-bottom: 2px solid rgb(0, 0, 0)
+}
+.roboto{
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+h1{
+    color:rgb(230, 234, 239);
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
+#p-c{
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+#form{
+    text-align: center; 
+    margin-top:20px
+}   
+#result{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    min-height: 100px;
+    width: auto;
+}
+
+.displayed-image {
+    max-width: 500px;
+    height: auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+#butao{
+    background-color: #ac2118;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#PC{
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}   
