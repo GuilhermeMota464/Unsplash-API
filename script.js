@@ -1,31 +1,48 @@
-document.addEventListener("DOMContentLoaded"), function() {
-    //vai printar no console se funcionou
+document.addEventListener("DOMContentLoaded", function() {
+    // Verifica se o JavaScript foi carregado
     console.log("JavaScript arquivo carregado");
-    //vai se conectar ao formulário
+    
+    // Conecta ao formulário
     const imgFORM = document.getElementById("imgFORM");
-    //vai printar qual fomulário foi conectado
     console.log("Form element", imgFORM);
 
     if(imgFORM){
-        //vai printar se o id estiver certo
-        console.log("ID DO FORMULÁRIO ENCONTRADO")
+        console.log("ID DO FORMULÁRIO ENCONTRADO");
 
         imgFORM.addEventListener("submit", function(enviar){
-            console.log("FORMULÁRIO ENVIADO")
-
+            console.log("FORMULÁRIO ENVIADO");
             enviar.preventDefault();
-            //PC = Palavra-Chave
-            let PC = document.getElementById("PC").value.replace("-", "");
-
-            if (PC == true){
-                fetch(`banco.php?PC=${PC}`)
-                .then((response) => response.json())
+            
+            // PC = Palavra-Chave
+            let PC = document.getElementById("PC").value.trim();
+            
+            if (PC) {
+                console.log("Buscando por:", PC);
+                
+                fetch(`banco.php?PC=${encodeURIComponent(PC)}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Erro na requisição');
+                    }
+                    return response.json();
+                })
                 .then((data) => {
                     if (data.erro) {
-                        document.getElementById("result").innerHTML = "Palavra-Chave Inválida";
+                        document.getElementById("result").innerHTML = `<p style="color: red;">${data.erro}</p>`;
+                    } else if (data.URL) {
+                        document.getElementById("result").innerHTML = 
+                        `<img src="${data.URL}" alt="Imagem de ${PC}" style="max-width: 100%; height: auto;">`;
+                    } else {
+                        document.getElementById("result").innerHTML = "<p>Nenhuma imagem encontrada.</p>";
                     }
                 })
+                .catch((error) => {
+                    console.error("Erro:", error);
+                    document.getElementById("result").innerHTML = "<p>Erro ao buscar imagem. Tente novamente.</p>";
+                });
+            } else {
+                document.getElementById("result").innerHTML = "<p>Por favor, insira uma palavra-chave.</p>";
             }
-        })
+        });
     }
-}
+});
